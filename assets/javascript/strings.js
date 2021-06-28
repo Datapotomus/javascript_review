@@ -20,8 +20,11 @@ console.log(madlibLiteral)
 
 // #4 You can use the .toString function.
 
-let numTest = 4.
+let numTest = "4"
 
+numString = numTest - 0
+
+console.log(typeof parseInt(numTest))
 console.log(typeof numTest)
-console.log(typeof numTest.toString())
+console.log(typeof numString)
 

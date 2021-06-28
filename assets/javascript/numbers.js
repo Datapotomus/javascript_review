@@ -1,7 +1,7 @@
 console.log("numbers.js");
 let myNum = 1;
 
-myNum += 15;
+myNum = myNum + 15;
 console.log(`Number after adding 15: ${myNum}`)
 myNum -= 8;
 console.log(`Number after subtracting 8, but not using the variable: ${myNum}`)

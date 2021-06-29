@@ -1,3 +1,4 @@
+"use strict";
 console.log("loops.js");
 
 // 1. Write a for loop that counts from 0 to 100, printing each number to the console.

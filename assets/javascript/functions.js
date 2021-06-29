@@ -94,7 +94,7 @@ console.log(advancedGreeting(24));
 
 /*
 5. Can we access variables created inside the scope of a function outside of that function? 
-    We can't if we use let, we can if we use var.
+    Nope
 
 Can a function access variables created in a parent scope?
     Yes, we can access variables in the parent.

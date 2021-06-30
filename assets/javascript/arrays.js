@@ -30,7 +30,7 @@ console.log(typeof myArray);
  */
 
 /**
- * 1. Given the following array, const carMakes = ["Honda", "Toyota", "Mazda"]
+ * 5. Given the following array, const carMakes = ["Honda", "Toyota", "Mazda"]
  *    On a separate line use a built in array method to add "Mercedes" to the end of the array
  *    On a separate line use a built in array method to add "BMW" to the beginning of the array
  *    Print "Toyota" to the console accessing it by it's index
@@ -118,7 +118,7 @@ studentsArray.forEach(element => {
  */
 
 const numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-let numbersSquaredArray = numbersArray.map(x => x * 2);
+let numbersSquaredArray = numbersArray.map(x => x * x);
 console.log(numbersSquaredArray)
 
 /**

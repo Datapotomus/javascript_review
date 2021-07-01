@@ -1,6 +1,10 @@
 "use strict";
 console.log("objects.js");
 
+function res(num){
+  return `\nExercise ${num} output: \n`;
+}
+
 /**
  * 1. Create an object that represents a person
  *    The object should have a name, an age, and a favorite color.
@@ -16,7 +20,7 @@ let person = {
   }
 }
 
-console.log(`Hello, My name is ${person.name}. I am ${person.age} years old and my favorite color is ${person.favoriteColor}.`)
+console.log(res(1), `Hello, My name is ${person.name}. I am ${person.age} years old and my favorite color is ${person.favoriteColor}.`)
 
 /**
  * 2. Add a method called sayHello to the person 
@@ -26,7 +30,7 @@ console.log(`Hello, My name is ${person.name}. I am ${person.age} years old and 
  *    Below the object, call the new method within a console.log() statement.
  */
 
-console.log(person.sayHello())
+console.log(res(2), person.sayHello())
 
 
 /**
@@ -47,13 +51,13 @@ let studentBob = {
     return `Hello, My name is ${this.name} and I am a student. I am ${this.age} years old and my major is ${this.major}. My current average grade is ${this.averageGrade()}.`
   }
 }
-console.log(studentBob.averageGrade())
+console.log(res(3), studentBob.averageGrade())
 
 /**
  * 4. Add a new method to the studentBob object called printDetails that prints: "Hello, My name is name and I am a student. 
  * I am age years old and my major major. My current average grade is averageGrade.
  */
-console.log(studentBob.printDetails())
+console.log(res(4), studentBob.printDetails())
 
 /**
  * 5. Loop through the following array of objects and print out the name property of each 
@@ -91,6 +95,7 @@ const charactersArray = [
   },
 ];
 
+console.log(res(5))
 charactersArray.forEach(element => {
   console.log(element.name.toUpperCase())
 });
@@ -103,7 +108,7 @@ charactersArray.forEach(element => {
 
 let filteredCharactersArray = charactersArray.filter(character => character.mass > 80 );
 
-console.log(filteredCharactersArray)
+console.log(res(6),filteredCharactersArray)
 
 /**
  * 7. Using the Array.map() method on charactersArray, create a new array called 
@@ -111,7 +116,7 @@ console.log(filteredCharactersArray)
  */
 
 let characterNames = charactersArray.map(character => character.name )
-console.log(characterNames)
+console.log(res(7),characterNames.toString())
 
 /**
  * 8. Using the Array.some() method on charactersArray. Check to see if a character 
@@ -120,11 +125,11 @@ console.log(characterNames)
  */
 
 const eyeCheck = (character) => character.eye_color === "blue";
-
+console.log(res(8));
 if(charactersArray.some(eyeCheck)){
-  console.log("Some characters have blue eyes")
+  console.log("Some characters have blue eyes");
 }else {
-  console.log("No characters have blue eyes")
+  console.log("No characters have blue eyes");
 };
 
 /**
@@ -134,7 +139,7 @@ if(charactersArray.some(eyeCheck)){
  */
 
 const isMale = (character) => character.gender === "male";
-
+console.log(res(9))
 if (charactersArray.every(isMale)){
   console.log("All the characters are male")
 }else {
@@ -147,13 +152,20 @@ if (charactersArray.every(isMale)){
  */
 let totalMass = 0;
 
-// charactersArray.map(character => totalMass += parseInt(character.mass))
-
 charactersArray.forEach(character => {
   totalMass += parseInt(character.mass);
 });
 
-console.log(totalMass)
+console.log(res(10),totalMass)
+
+let massTotal = charactersArray.reduce(function (a, b) {
+  return {mass: parseInt(a.mass) + parseInt(b.mass)}; // returns object with property x
+})
+
+console.log(res(10),"Reduce Function:",massTotal.mass)
+
+let massTotal2 = charactersArray.reduce((a, b) => ({mass: parseInt(a.mass) + parseInt(b.mass)}));
+console.log(res(10),"Reduce Arrow Function:",massTotal2.mass)
 
 /**
  * 11. Create a function called tagFavorite that takes an array as one parameter and a 
@@ -164,3 +176,16 @@ console.log(totalMass)
  *      If the character name matches the character name passed in, set the favoriteCharacter property to true for that character's object
  *      Test your function by passing in the charactersArray and your favorite character's name when running the function. Print the charactersArray after you run the function to ensure the objects updated properly.
  */
+
+function tagFavorite(tagArray, favChar){
+  tagArray.forEach(character => {
+    if (character.name === favChar){
+      character.favoriteCharacter = true;
+    } else {
+      character.favoriteCharacter = false;
+    }
+  });
+}
+
+tagFavorite(charactersArray, "Luke Skywalker");
+console.log(res(11),charactersArray)

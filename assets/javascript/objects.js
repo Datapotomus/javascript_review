@@ -189,7 +189,7 @@ console.log("Eric's Solution", massTotalEric)
 ex(11);
 function tagFavorite(tagArray, favChar){
   tagArray.forEach(character => {
-    if (character.name === favChar){
+    if (character.name.toUpperCase() === favChar.toUpperCase()){
       character.favoriteCharacter = true;
     } else {
       character.favoriteCharacter = false;
@@ -199,12 +199,14 @@ function tagFavorite(tagArray, favChar){
 
 tagFavorite(charactersArray, "Luke Skywalker");
 console.log(charactersArray)
-
+                             
 //Working on Deb's issue
 ex("Deb's method")
-let debCharactersArray = Object.create(charactersArray)
 
-function tagFavorite(newArray, favoriteCharacter){
+let debCharactersArray = charactersArray.map(character => character )
+let debCharactersArray = new Array
+
+function tagFavoriteDeb(newArray, favoriteCharacter){
   for (let i=0; i < newArray.length; i++){
     newArray[i].likesCheese = false
     if (favoriteCharacter === newArray[i].name) {
@@ -212,5 +214,5 @@ function tagFavorite(newArray, favoriteCharacter){
     }
   }
 }
-tagFavorite(debCharactersArray,"Leia Organa")
+tagFavoriteDeb(debCharactersArray,"Leia Organa")
 console.log(debCharactersArray)

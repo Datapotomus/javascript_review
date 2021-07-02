@@ -252,24 +252,36 @@ let quizQuestions = [
 //   newTr.append(tdAnswer);
 // });
 
+// quizQuestions.forEach(question => {
+//   tBody.innerHTML += `<tr>
+//                       <td>${question.id}</td>
+//                       <td>${question.question}</td>
+//                       <td>${question.category.title}</td>
+//                       <td>${question.value}</td>
+//                       <td>${question.answer}</td>
+//                     </tr>`
+// });
 
 quizQuestions.forEach(question => {
-  // console.log(question.id)
   let newTr = document.createElement('tr');
   let tdID = document.createElement('td');
   let tdQuestion = document.createElement('td');
   let tdCategory = document.createElement('td');
   let tdValue = document.createElement('td');
   let tdAnswer = document.createElement('td');
-  tdID.append(question.id);
-  tdQuestion.append(question.question);
-  tdCategory.append(question.category.title);
-  tdValue.append(question.value);
-  tdAnswer.append(question.answer);
+  tdID.textContent = question.id;
+  tdQuestion.textContent = question.question;
+  tdCategory.textContent = question.category.title;
+  tdValue.textContent = question.value;
+  tdAnswer.textContent = question.answer;
   tBody.append(newTr);
   newTr.append(tdID, 
               tdQuestion, 
               tdCategory, 
               tdValue, 
               tdAnswer);
+  if (tdValue.textContent > 500){
+    tdValue.style.fontWeight = 'bold';
+    tdValue.style.color = "#ff66ff"
+  }
 });

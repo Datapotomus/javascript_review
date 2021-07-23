@@ -7,6 +7,10 @@ const counter = document.querySelector("#counter");
 const background = document.querySelector("body");
 const tBody = document.querySelector("#quizQuestionsTable tbody");
 
+$(document).ready( function () {
+  $('#quizQuestionsTable').DataTable();
+} );
+
 // 9. Adding the function to the top of the page.
 function randomColor() {
   const colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
@@ -74,13 +78,6 @@ button.addEventListener("click", function () {
   counter.innerText = parseInt(counter.innerText) + 1;
   background.style.backgroundColor = randomColor();
 })
-
-// rollDice.addEventListener("click", function () {
-//   let numberOfDice = numDice.value;
-//   for (let index = 0; index < numberOfDice; index++) {
-//     dieRolls.push(getDiceResult(1,6));
-//   }
-
 
 /**
  * 7. Add a span HTML element to the <body> of index.html after the button and give the new span 
@@ -252,36 +249,36 @@ let quizQuestions = [
 //   newTr.append(tdAnswer);
 // });
 
-// quizQuestions.forEach(question => {
-//   tBody.innerHTML += `<tr>
-//                       <td>${question.id}</td>
-//                       <td>${question.question}</td>
-//                       <td>${question.category.title}</td>
-//                       <td>${question.value}</td>
-//                       <td>${question.answer}</td>
-//                     </tr>`
-// });
-
 quizQuestions.forEach(question => {
-  let newTr = document.createElement('tr');
-  let tdID = document.createElement('td');
-  let tdQuestion = document.createElement('td');
-  let tdCategory = document.createElement('td');
-  let tdValue = document.createElement('td');
-  let tdAnswer = document.createElement('td');
-  tdID.textContent = question.id;
-  tdQuestion.textContent = question.question;
-  tdCategory.textContent = question.category.title;
-  tdValue.textContent = question.value;
-  tdAnswer.textContent = question.answer;
-  tBody.append(newTr);
-  newTr.append(tdID, 
-              tdQuestion, 
-              tdCategory, 
-              tdValue, 
-              tdAnswer);
-  if (tdValue.textContent > 500){
-    tdValue.style.fontWeight = 'bold';
-    tdValue.style.color = "#ff66ff"
-  }
+  tBody.innerHTML += `<tr>
+                      <td>${question.id}</td>
+                      <td>${question.question}</td>
+                      <td>${question.category.title}</td>
+                      <td>${question.value}</td>
+                      <td>${question.answer}</td>
+                    </tr>`
 });
+
+// quizQuestions.forEach(question => {
+//   let newTr = document.createElement('tr');
+//   let tdID = document.createElement('td');
+//   let tdQuestion = document.createElement('td');
+//   let tdCategory = document.createElement('td');
+//   let tdValue = document.createElement('td');
+//   let tdAnswer = document.createElement('td');
+//   tdID.textContent = question.id;
+//   tdQuestion.textContent = question.question;
+//   tdCategory.textContent = question.category.title;
+//   tdValue.textContent = question.value;
+//   tdAnswer.textContent = question.answer;
+//   tBody.append(newTr);
+//   newTr.append(tdID, 
+//               tdQuestion, 
+//               tdCategory, 
+//               tdValue, 
+//               tdAnswer);
+//   if (tdValue.textContent > 500){
+//     tdValue.style.fontWeight = 'bold';
+//     newTr.style.color = "#ff66ff";
+//   }
+// });
